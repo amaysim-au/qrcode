@@ -23,7 +23,6 @@ rootProject.allprojects {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 ext {
     spekVersion = '2.0.13'
@@ -35,6 +34,15 @@ android {
 
     if (project.android.hasProperty('namespace')) {
         namespace 'com.example.qrcode'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     buildFeatures {
